@@ -1,4 +1,4 @@
-package com.ose4g.currencyconverter
+package com.ose4g.currencyconverter.adapters
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager

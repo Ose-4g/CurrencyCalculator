@@ -9,10 +9,14 @@ import android.os.Looper
 import android.util.DisplayMetrics
 import android.util.Log
 import android.view.WindowInsets
+import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager2.widget.ViewPager2
+import com.ose4g.currencyconverter.adapters.ViewPagerAdapter
+import com.ose4g.currencyconverter.fragments.GraphFragment
+import com.ose4g.currencyconverter.fragments.HomeFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -23,6 +27,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
 
         val list:ArrayList<Fragment> = ArrayList()
         list.add(HomeFragment())
