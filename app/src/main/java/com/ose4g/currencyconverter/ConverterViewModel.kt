@@ -13,6 +13,7 @@ import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.util.*
 
 class ConverterViewModel :ViewModel()
 {
@@ -61,27 +62,30 @@ class ConverterViewModel :ViewModel()
         return symbolsGotten
     }
 
-    fun convertAmount(key:String,from:String,to:String,amount:Int)
+    fun convertAmount(key:String,baseCurrency: String,otherCurrency: String, amount:Int)
     {
         viewModelScope.launch {
             val request = RetrofitHelper.getInstance().create(ConverterRequests::class.java)
 
-            val response = request.getConversion(key, from, to, amount)
-            response.enqueue(object : Callback<ConvertResponse>{
+            val response = request.getTwoRates(key, "$baseCurrency,$otherCurrency")
+            response.enqueue(object:Callback<ConvertResponse>{
                 override fun onResponse(
                     call: Call<ConvertResponse>,
                     response: Response<ConvertResponse>
                 ) {
-                   if(response.isSuccessful)
-                       Log.i("result",""+response.body()!!.success)
+                    if(response.isSuccessful)
+                        for(i in response.body()!!.symbolsRates)
+                            Log.i("ratess",i.toString()+"----"+response.body()!!.symbolsRates[i])
                     else
-                       Log.i("result","reponse not sucessful")
+                        Log.i("rates","couldnt get rates")
                 }
 
                 override fun onFailure(call: Call<ConvertResponse>, t: Throwable) {
-                    Log.i("result","reponse failed")
+                    Log.i("rates","probably netrwork error. Damn glo")
                 }
+
             })
+
         }
     }
 }

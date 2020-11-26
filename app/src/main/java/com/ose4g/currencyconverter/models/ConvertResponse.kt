@@ -8,12 +8,16 @@ class ConvertResponse {
     @Expose
     var success:Boolean?=null
 
+    @SerializedName("timestamp")
+    @Expose
+    var timestamp:Long? = null
+
     @SerializedName("date")
     @Expose
     var date:String?=null
 
-    @SerializedName("result")
+    @SerializedName("rates")
     @Expose
-    var result:Double?=null
+    var symbolsRates:Map<String,Double> = mapOf()
 
 }

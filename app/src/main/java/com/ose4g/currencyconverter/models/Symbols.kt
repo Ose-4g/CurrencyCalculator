@@ -11,7 +11,7 @@ class SymbolsResponse {
 
     @SerializedName("symbols")
     @Expose
-    var symbols:MutableMap<String,String> = mutableMapOf()
+    var symbols:Map<String,String> = mapOf()
 
     fun printAll()
     {

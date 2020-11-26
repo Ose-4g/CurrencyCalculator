@@ -100,10 +100,11 @@ class HomeFragment : Fragment() {
             })
 
 
-                mView.convert.setOnClickListener {
-            viewModel.convertAmount(getString(R.string.api_key),base_currency_symbol.text.toString(),
-            other_currency_symbol.text.toString(),
-            base_currency_value.text.toString().toInt())
+        mView.convert.setOnClickListener {
+            viewModel.convertAmount(getString(R.string.api_key),
+                base_currency_symbol.text.toString(),
+                other_currency_symbol.text.toString(),
+                base_currency_value.text.toString().toInt())
         }
 
 

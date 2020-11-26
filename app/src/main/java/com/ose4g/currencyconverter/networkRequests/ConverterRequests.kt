@@ -11,9 +11,10 @@ interface ConverterRequests {
     @GET("symbols")
     fun getAllSymbols(@Query("access_key") key:String):Call<SymbolsResponse>
 
-    @GET("convert")
-    fun getConversion(@Query("access_key") key:String,
-                      @Query("from") from:String,
-                      @Query("to") to:String,
-                      @Query("amount") amount:Int):Call<ConvertResponse>
+    @GET("latest")
+    fun getAllRates(@Query("access_key") key:String):Call<ConvertResponse>
+
+    @GET("latest")
+    fun getTwoRates(@Query("access_key") key:String,
+                    @Query("symbols") symbols:String):Call<ConvertResponse>
 }
