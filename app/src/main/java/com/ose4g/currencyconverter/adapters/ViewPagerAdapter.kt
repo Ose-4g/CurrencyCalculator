@@ -7,6 +7,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager2.adapter.FragmentStateAdapter
 
+//class for main page
 class ViewPagerAdapter(fragmentManager: FragmentManager,lifecycle: Lifecycle,list:ArrayList<Fragment>)
     : FragmentStateAdapter(fragmentManager,lifecycle) {
 

@@ -4,4 +4,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="sign_up">Sign Up</string>
     <string name="market_rate"><u>Mid-market exchanage rates at 13:38 UTC</u></string>
+    <string name="title1">Past 60 days</string>
+    <string name="title2">Past 90 days</string>
 </resources>
